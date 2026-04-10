@@ -10,14 +10,14 @@ license: MIT
 # 策略理念
 长期看空高 FDV 低流通山寨币，利用趋势信号确认 + 资金费率正向（多头付费给空头）窗口开空，赚取"趋势下跌 + 资金费率收息"双重收益。严格止损、绝不扛单。
 
-# 监控标的池（AI 动态筛选）
-WLD-USDT-SWAP    // Worldcoin  — 高 FDV、解锁抛压大、流通 <20%  
-APT-USDT-SWAP    // Aptos      — VC 高控盘、解锁周期长  
+# 监控标的池（AI 动态筛选）  
+OP-USDT-SWAP     // Optimism   — Layer2 代表，VC 解锁持续，流通比低，高 FDV  
+PEPE-USDT-SWAP   // Meme       — 龙头，情绪退潮暴跌，OKX 模拟盘必有  
 ARB-USDT-SWAP    // Arbitrum   — Layer2 叙事退潮、初期仅释放 15%  
 DOGE-USDT-SWAP   // Dogecoin   — Meme 情绪驱动、退潮暴跌  
 SUI-USDT-SWAP    // Sui        — VC 解锁持续、高 FDV 低流通  
-SEI-USDT-SWAP    // Sei        — 新链叙事消退、高度稀释  
-TIA-USDT-SWAP    // Celestia   — 解锁抛压大、模块化叙事退潮  
+FIL-USDT-SWAP    // Filecoin   — 超高 FDV，大量解锁，价格长期阴跌  
+IMX-USDT-SWAP    // ImmutableX — 游戏叙事退潮，VC 高控盘，解锁周期长  
 STRK-USDT-SWAP   // StarkNet   — VC 高控盘、流通极低  
 
 > 选币逻辑：市值/FDV 比 < 0.3、合约资金费率长期为正、近期有解锁事件优先。
@@ -293,7 +293,7 @@ STRK-USDT-SWAP   // StarkNet   — VC 高控盘、流通极低
 持仓超过 72 小时（18 个 4H 周期）且浮盈 < 1%：  
 → 平仓退出，资金效率不足  
 
-## 8.4 资金使用率检查（V2 新增）
+## 8.4 资金使用率检查
 每轮触发时计算：当前总持仓保证金 ÷ 可交易资金  
 - 如果 ≥ 80%：不允许新开仓，仅管理现有持仓  
 - 如果 ≥ 95%：触发警告，考虑主动减仓最弱标的  
@@ -321,8 +321,8 @@ STRK-USDT-SWAP   // StarkNet   — VC 高控盘、流通极低
 每轮触发后，AI 需输出以下结构化报告：  
 
 ```
-═══ 山寨币做空策略报告 V2 ═══
-🕐 时间：2026-04-10 08:00 UTC+8  
+═══ 山寨币做空策略报告 ═══
+🕐 时间：2026-04-10 08:00(+8时区)  
 💰 账户净值：XXXX USDT  
 💰 可交易资金（50%）：XXXX USDT  
 📊 已用保证金 / 可用上限：XXX / XXX USDT（XX%）  
