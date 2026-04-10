@@ -1,3 +1,15 @@
+---
+name: skill-altcoin-short-v1
+description: "山寨币趋势做空 + 防资金费侵蚀"
+license: MIT
+metadata:
+  author: wu
+  version: "1.0.0"
+  agent:
+    requires:
+      bins: ["okx"]
+---
+
 # 策略名称
 山寨币趋势做空 + 防资金费侵蚀 V1.0
 
