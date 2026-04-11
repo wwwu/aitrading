@@ -12,18 +12,15 @@ license: MIT
 
 # 监控标的池（AI 动态筛选）  
 OP-USDT-SWAP     // Optimism   — Layer2 代表，VC 解锁持续，流通比低，高 FDV  
-PEPE-USDT-SWAP   // Meme       — 龙头，情绪退潮暴跌，OKX 模拟盘必有  
 ARB-USDT-SWAP    // Arbitrum   — Layer2 叙事退潮、初期仅释放 15%  
-DOGE-USDT-SWAP   // Dogecoin   — Meme 情绪驱动、退潮暴跌  
-SUI-USDT-SWAP    // Sui        — VC 解锁持续、高 FDV 低流通  
 FIL-USDT-SWAP    // Filecoin   — 超高 FDV，大量解锁，价格长期阴跌  
 IMX-USDT-SWAP    // ImmutableX — 游戏叙事退潮，VC 高控盘，解锁周期长  
 STRK-USDT-SWAP   // StarkNet   — VC 高控盘、流通极低  
+RIVER-USDT-SWAP  
+NIGHT-USDT-SWAP  
+BASED-USDT-SWAP  
 
 > 选币逻辑：市值/FDV 比 < 0.3、合约资金费率长期为正、近期有解锁事件优先。
-
-# 执行节奏
-每 1 小时触发一次
 
 # ═══════════════════════════════════════════
 # Step 1 · 行情数据采集
