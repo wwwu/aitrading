@@ -220,9 +220,9 @@ STRK-USDT-SWAP   // StarkNet   — VC 高控盘、流通极低
   ordType     = "market"            // 市价单快速成交  
   sz          = <Step 5 计算的张数>  
   tag         = "agentTradeKit"     // ⚠️ 必填，否则不计入排行榜  
-  tpTriggerPx = <开仓价 × 0.97>    // 止盈触发价（盈利 3%）  
+  tpTriggerPx = <开仓价 × 0.95>    // 止盈触发价（盈利 5%）  
   tpOrdPx     = "-1"               // 触发后市价执行  
-  slTriggerPx = <开仓价 × 1.02>    // 止损触发价（亏损 2%）  
+  slTriggerPx = <开仓价 × 1.03>    // 止损触发价（亏损 3%）  
   slOrdPx     = "-1"               // 触发后市价执行  
 
 > ⚠️ 注意：由于市价单不知道精确成交价，tpTriggerPx 和 slTriggerPx 应在下单前
@@ -246,23 +246,22 @@ STRK-USDT-SWAP   // StarkNet   — VC 高控盘、流通极低
   side        = "buy"             // 空头平仓方向  
   posSide     = "short"  
   ordType     = "trigger"  
-  triggerPx   = 开仓价 × 1.02     // 2% 止损  
+  triggerPx   = 开仓价 × 1.03     // 3% 止损  
   orderPx     = "-1"              // 触发后市价执行  
   triggerPxType = "last"  
   sz          = <全部持仓张数>  
 
 ### 止盈（分批）
 第一止盈（平 50% 仓位）：  
-  triggerPx   = 开仓价 × 0.97     // 盈利 3%  
+  triggerPx   = 开仓价 × 0.95     // 盈利 5%  
   sz          = <总张数的 50%，向下取整>  
 
 第二止盈（平剩余 50%）：  
-  triggerPx   = 开仓价 × 0.94     // 盈利 6%  
+  triggerPx   = 开仓价 × 0.91     // 盈利 9%  
   sz          = <剩余张数>  
 
-### 移动止损（当浮盈 > 3% 时启用）  
-  当价格触及开仓价 × 0.97 后，将止损移至开仓价 × 1.00（保本位）  
-  当价格触及开仓价 × 0.94 后，将止损移至开仓价 × 0.97（锁定 3%）  
+### 移动止损（当浮盈 > 5% 时启用）  
+  当价格触及开仓价 × 0.95 后，将止损移至开仓价 × 1.00（保本位）   
 
 ### 止盈止损双层机制总结
 | 层级 | 实现方式 | 作用 | 何时设置 |
