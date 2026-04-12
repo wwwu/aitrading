@@ -225,21 +225,7 @@ BASED-USDT-SWAP  //
 
 ## 第二道防线：algo order 分批止盈
 
-> 开仓成交后，先获取实际成交均价，然后取消 Step 6 附带的简单 TP/SL，
-> 替换为以下更精细的分批策略。
-
-开仓成交后，立即调用 swap_place_algo_order 设置止损止盈：  
-
-### 止损（硬性，不可取消）  
-  instId      = <开仓标的>  
-  tdMode      = "isolated"  
-  side        = "buy"             // 空头平仓方向  
-  posSide     = "short"  
-  ordType     = "trigger"  
-  triggerPx   = 开仓价 × 1.03     // 3% 止损  
-  orderPx     = "-1"              // 触发后市价执行  
-  triggerPxType = "last"  
-  sz          = <全部持仓张数>  
+开仓成交后，立即调用 swap_place_algo_order 设置分批止盈：  
 
 ### 止盈（分批）
 第一止盈（平 50% 仓位）：  
