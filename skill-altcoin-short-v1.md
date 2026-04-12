@@ -199,12 +199,12 @@ BASED-USDT-SWAP  //
   side        = "sell"              // 做空方向  
   posSide     = "short"             // 空头持仓  
   ordType     = "market"            // 市价单快速成交  
-  sz          = <Step 5 计算的张数>  
+  sz          = "<Step 5 计算的张数>"  
   tag         = "agentTradeKit"     // ⚠️ 必填，否则不计入排行榜  
-  tpTriggerPx = <开仓价 × 0.93>    // 止盈触发价（盈利 7%）  
-  tpOrdPx     = "-1"               // 触发后市价执行  
-  slTriggerPx = <开仓价 × 1.03>    // 止损触发价（亏损 3%）  
-  slOrdPx     = "-1"               // 触发后市价执行  
+  tpTriggerPx = "<开仓价 × 0.93>"   // 止盈触发价（盈利 7%）  
+  tpOrdPx     = "-1"                // 触发后市价执行  
+  slTriggerPx = "<开仓价 × 1.03>"   // 止损触发价（亏损 3%）  
+  slOrdPx     = "-1"                // 触发后市价执行  
 
 > ⚠️ 注意：由于市价单不知道精确成交价，tpTriggerPx 和 slTriggerPx 应在下单前
 > 根据最新 market_get_ticker 返回的 last price 预估计算。成交后在 Step 7 中
@@ -220,12 +220,12 @@ BASED-USDT-SWAP  //
 
 ### 止盈（分批）
 第一止盈（平 50% 仓位）：  
-  triggerPx   = 开仓价 × 0.96     // 盈利 4%  
-  sz          = <总张数的 50%，向下取整>  
+  triggerPx   = "开仓价 × 0.96"     // 盈利 4%  
+  sz          = "<总张数的 50%，向下取整>"  
 
 第二止盈（平剩余 50%）：  
-  triggerPx   = 开仓价 × 0.93     // 盈利 7%  
-  sz          = <剩余张数>  
+  triggerPx   = "开仓价 × 0.93"     // 盈利 7%  
+  sz          = "<剩余张数>"  
   
 
 # ═══════════════════════════════════════════
