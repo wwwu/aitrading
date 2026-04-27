@@ -115,7 +115,7 @@ margin = position_notional ÷ 10
 - 做多止盈(卖)：tpOrdPx ≤ tpTriggerPx｜做多止损(卖)：slOrdPx ≤ slTriggerPx
 - 做空止盈(买)：tpOrdPx ≥ tpTriggerPx｜做空止损(买)：slOrdPx ≥ slTriggerPx
 
-调用 swap_place_order（instId="ETH-USDT-SWAP", tdMode="isolated", side, posSide, ordType="market", sz, tag="agentTradeKit", tpTriggerPx, tpOrdPx, slTriggerPx, slOrdPx）
+调用 swap_place_order（instId="ETH-USDT-SWAP", tdMode="isolated", "side", "posSide", ordType="market", "sz", tag="agentTradeKit", "tpTriggerPx", "tpOrdPx", "slTriggerPx", "slOrdPx"）
 
 # Step 6 · 分批止盈
 
