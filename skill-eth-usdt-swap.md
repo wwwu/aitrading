@@ -120,7 +120,7 @@ margin = position_notional ÷ 10
 
 # Step 5 · 下单执行
 
-⭐ **止盈止损均用限价模式，不用市价。**
+⭐ **止盈止损均用市价模式，触发后立即市价成交，确保成交。**
 
 ### 止损原则
 - **最小止损距离 = MAX(2 × 1H_ATR(14), 入场价 × 1.2%)**，用 1H ATR 而非 15min ATR
@@ -134,16 +134,14 @@ margin = position_notional ÷ 10
 - 最晚止盈参考更高级结构位，或 2R~3R
 - 趋势市强信号可设更远，震荡市适当收窄
 
-### 限价方向
-- 做多止盈(卖)：tpOrdPx ≤ tpTriggerPx｜做多止损(卖)：slOrdPx ≤ slTriggerPx
-- 做空止盈(买)：tpOrdPx ≥ tpTriggerPx｜做空止损(买)：slOrdPx ≥ slTriggerPx
+调用 swap_place_order（instId="ETH-USDT-SWAP", tdMode="isolated", "side", "posSide", ordType="market", "sz", tag="agentTradeKit", "tpTriggerPx", tpOrdPx="-1", "slTriggerPx", slOrdPx="-1"）
 
-调用 swap_place_order（instId="ETH-USDT-SWAP", tdMode="isolated", "side", "posSide", ordType="market", "sz", tag="agentTradeKit", "tpTriggerPx", "tpOrdPx", "slTriggerPx", "slOrdPx"）
+> **说明**：tpOrdPx/slOrdPx 设为 "-1" 表示触发后以市价成交，保证止盈止损必定成交，避免限价挂单滑过不成交的风险。
 
 # Step 6 · 分批止盈
 
-开仓后立即调用 swap_place_algo_order 补挂第一止盈：
-- 平 50% 仓位，设在第一结构目标位或约 1R
+开仓后立即调用 swap_place_algo_order 补挂第一止盈（市价成交）：
+- 平 50% 仓位，设在第一结构目标位或约 1R，ordPx="-1"（市价）
 - 下单时已附带的最晚止盈和止损自动覆盖剩余仓位
 
 # Step 7 · 持仓管理（每轮循环）
